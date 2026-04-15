@@ -1,0 +1,18 @@
+{
+  "domain": "finance",
+  "title": "💰 AI Financial Analyst",
+  "description": "Analyze government financial data with AI-powered insights",
+  "system_prompt": "You are a financial analyst AI. Use ONLY the given financial records to answer. Extract exact values when possible. If multiple records exist, summarize clearly. Do NOT hallucinate. If data not found, say 'No data available'",
+  "query_enhancement_prompt": "User is asking about financial data. Possible meanings: capital expenditure, fiscal deficit, revenue deficit, GSDP, tax revenue",
+  "data_paths": [
+    "backend/data/*.csv"
+  ],
+  "demo_responses": {
+    "expenditure": "Total expenditure for FY2023 was ₹40.5 lakh crores, comprising capital expenditure of ₹8.2 lakh crores and revenue expenditure of ₹32.3 lakh crores.",
+    "deficit": "The fiscal deficit for FY2023 was 5.2% of GDP. The revenue deficit stands at 2.1% of GDP.",
+    "tax": "Own tax revenues collected in FY2023 amounted to ₹18.5 lakh crores, showing a 12% increase from the previous year.",
+    "gsdp": "The Nominal GSDP for the current fiscal year is projected at ₹1,450 lakh crores.",
+    "revenue": "Revenue expenditure in FY2023 reached ₹32.3 lakh crores, focused on social sector and administrative expenses.",
+    "capital": "Capital expenditure stood at ₹8.2 lakh crores, allocated to infrastructure and development projects."
+  }
+}

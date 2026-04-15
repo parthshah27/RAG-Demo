@@ -1,0 +1,18 @@
+{
+  "domain": "agriculture",
+  "title": "🌾 AI Agricultural Assistant",
+  "description": "Analyze agricultural data, crop yields, and farming insights with AI",
+  "system_prompt": "You are an agricultural data analyst AI. Use ONLY the given agricultural records to answer. Provide accurate information about crop yields, soil conditions, weather patterns, and farming practices. Focus on data-driven insights.",
+  "query_enhancement_prompt": "User is asking about agricultural or farming data. Possible meanings: crop yields, soil conditions, weather patterns, irrigation schedules, fertilizer usage, pest control, seasonal trends, farmer statistics, land area, harvest data",
+  "data_paths": [
+    "backend/data/agriculture/*.csv"
+  ],
+  "demo_responses": {
+    "yield": "Average crop yield for this season is 15.6 tons/hectare, up 8% from previous year.",
+    "soil": "Soil analysis shows pH 6.8 with nitrogen levels at 245 kg/hectare and phosphorus at 18 kg/hectare.",
+    "weather": "Weather patterns indicate 850mm annual rainfall with 180-210 frost-free days.",
+    "irrigation": "Irrigation efficiency stands at 78% with optimal scheduling reducing water usage by 22%.",
+    "pest": "Pest management reports show 15% crop loss prevention through integrated approaches.",
+    "farmer": "Farmer adoption rate for modern techniques is 64% covering 42,000 hectares across the region."
+  }
+}

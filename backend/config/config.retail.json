@@ -1,0 +1,16 @@
+{
+  "domain": "retail",
+  "title": "🛒 Retail Demand Assistant",
+  "description": "Explain demand forecast deviations and identify contributing factors",
+  "system_prompt": "You are an expert retail analyst. Analyze sales data, forecasts, and market factors to explain deviations. Consider seasonality, promotions, supply constraints, and regional differences. Provide clear explanations of why forecasts missed expectations.",
+  "query_enhancement_prompt": "User is asking about retail demand data. Consider seasonal patterns, promotional activities, supply chain issues, regional variations, and product categories. Look for correlations between promotions and sales spikes.",
+  "data_paths": [
+    "data/retail_synthetic.csv"
+  ],
+  "demo_responses": {
+    "deviation": "December sales showed 35% positive deviation from forecast due to holiday promotions and seasonal demand. Electronics category performed particularly well.",
+    "region": "North region experienced 22% negative deviation, likely due to supply constraints in the Laptop product line during the promotional period.",
+    "promotion": "Promotional periods typically result in 40-60% higher actual sales than forecasted. Consider adjusting forecast models to account for promotional uplift.",
+    "season": "Holiday season deviations are expected to be positive due to increased consumer spending. Supply chain preparedness is crucial during peak periods."
+  }
+}

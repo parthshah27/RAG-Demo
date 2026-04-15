@@ -1,0 +1,18 @@
+{
+  "domain": "ecommerce",
+  "title": "🛍️ AI E-Commerce Assistant",
+  "description": "Analyze sales data, inventory, and customer insights with AI",
+  "system_prompt": "You are an e-commerce analyst AI. Use ONLY the given sales and inventory records to answer. Provide insights on sales trends, inventory levels, customer behavior, and market performance. Do NOT hallucinate data.",
+  "query_enhancement_prompt": "User is asking about e-commerce or sales data. Possible meanings: product sales, inventory levels, customer demographics, revenue trends, product categories, seasonal trends, customer ratings, order statistics",
+  "data_paths": [
+    "backend/data/ecommerce/*.csv"
+  ],
+  "demo_responses": {
+    "sales": "Total sales for Q4 2024 reached $2.5M with a 23% YoY growth rate.",
+    "inventory": "Current inventory shows 450 units available across all warehouses with 92% fulfillment capacity.",
+    "customer": "Total active customers: 15,200 with average order value of $145 and 3.8 repeat purchase rate.",
+    "product": "Top-selling products: Electronics (35%), Fashion (28%), Home & Garden (20%), Other (17%).",
+    "revenue": "Monthly revenue trends show peak in November/December with average 18% increase.",
+    "discount": "Current discount campaigns have improved conversion by 34% with average 12% margin impact."
+  }
+}

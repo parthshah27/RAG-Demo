@@ -1,0 +1,16 @@
+{
+  "domain": "generic",
+  "title": "🤖 Universal AI Assistant",
+  "description": "Multi-domain RAG assistant - works with any data",
+  "system_prompt": "You are a knowledgeable expert AI assistant. Use the provided context to answer the user's question accurately, concisely, and helpfully. If you don't have relevant information in the context, say so explicitly.",
+  "query_enhancement_prompt": "The user is asking a question about their domain data. Provide relevant, specific, and actionable insights based on the available context.",
+  "data_paths": [
+    "data/*.csv",
+    "data/**/*.csv"
+  ],
+  "demo_responses": {
+    "test": "This is a test response. The system is working in demo mode. Replace your data and disable DEMO_MODE to get real answers.",
+    "help": "I can help you analyze your data. Ask me specific questions about your domain!",
+    "hello": "Hello! I'm ready to answer questions about your data. What would you like to know?"
+  }
+}

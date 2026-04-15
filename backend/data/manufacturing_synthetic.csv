@@ -1,0 +1,11 @@
+timestamp,defect_type,line,product,severity,quantity,temperature,pressure,speed,operator,batch_id
+2026-01-10 00:56:16,Color Variation,Line D,Gadget Y,Low,1,133.5,104.7,42.1,Operator_3,BATCH_2828
+2025-11-06 05:56:16,Color Variation,Line C,Tool Z,Medium,16,144.2,102.5,53.7,Operator_19,BATCH_6357
+2026-01-28 10:56:16,Misalignment,Line D,Widget X,Critical,17,158.4,104.7,46.1,Operator_7,BATCH_5630
+2025-09-27 03:56:16,Misalignment,Line B,Gadget Y,High,19,164.4,103.2,50.8,Operator_11,BATCH_3586
+2025-04-17 00:56:16,Size Deviation,Line C,Tool Z,Low,20,163.8,99.9,57.6,Operator_9,BATCH_8169
+2026-01-23 10:56:16,Color Variation,Line D,Tool Z,High,11,134.4,91.7,55.9,Operator_7,BATCH_1713
+2026-03-11 05:56:16,Dent,Line A,Widget X,Low,178,141.3,107.4,48.6,Operator_15,BATCH_5925
+2025-11-27 22:56:16,Surface Scratch,Line B,Widget X,Critical,20,154.9,104.4,51.5,Operator_7,BATCH_2870
+2026-01-09 12:56:16,Crack,Line B,Part W,Medium,4,150.5,99.1,50.1,Operator_9,BATCH_6177
+2025-08-23 06:56:16,Dent,Line A,Tool Z,High,16,150.7,99.4,51.5,Operator_14,BATCH_3913

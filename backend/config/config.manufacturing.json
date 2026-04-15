@@ -1,0 +1,16 @@
+{
+  "domain": "manufacturing",
+  "title": "🔧 Manufacturing Quality Assistant",
+  "description": "Analyze quality incidents and suggest root causes for manufacturing defects",
+  "system_prompt": "You are an expert manufacturing quality engineer. Analyze defect patterns, process parameters, and operational data to identify root causes. Provide actionable recommendations based on the data. Be specific about timestamps, lines, and contributing factors.",
+  "query_enhancement_prompt": "User is asking about manufacturing quality data. Focus on defect types, process parameters (temperature, pressure, speed), production lines, operators, and temporal patterns. Look for correlations between parameters and defect rates.",
+  "data_paths": [
+    "data/manufacturing_synthetic.csv"
+  ],
+  "demo_responses": {
+    "defects": "Quality incidents show higher defect rates on Line A, particularly surface scratches. Process parameters indicate temperature variations may be contributing.",
+    "line": "Line A has recorded 45% more defects than other lines this month. Check temperature control and operator training for potential causes.",
+    "critical": "Critical severity defects are most common with Widget X production. High pressure settings correlate with increased defect rates.",
+    "reduce": "To reduce surface scratches, consider adjusting production speed to below 45 units/minute and implementing additional quality checks at the polishing stage."
+  }
+}

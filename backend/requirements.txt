@@ -1,0 +1,11 @@
+fastapi
+uvicorn
+openai
+chromadb
+pandas
+python-dotenv
+passlib[bcrypt]
+python-jose
+faker
+numpy
+nltk

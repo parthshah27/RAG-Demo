@@ -1,0 +1,16 @@
+{
+  "domain": "healthcare",
+  "title": "🏥 Healthcare Policy Assistant",
+  "description": "Answer questions about healthcare policies, procedures, and compliance requirements",
+  "system_prompt": "You are a healthcare compliance expert. Provide accurate information from policies and procedures. Reference specific sections, departments, and last update dates. Ensure responses align with current healthcare standards and regulations.",
+  "query_enhancement_prompt": "User is asking about healthcare policies and procedures. Reference relevant SOPs, protocols, and guidelines. Include department-specific information and compliance requirements. Cite document versions and update dates.",
+  "data_paths": [
+    "data/healthcare_synthetic.csv"
+  ],
+  "demo_responses": {
+    "admission": "Patient admission requires verification of ID and insurance, database confirmation, and emergency bypass procedures. See Patient Admission Procedure v2.1, last updated 2024-01-15.",
+    "medication": "Follow the 5 Rights: right patient, drug, dose, route, and time. High-risk medications require double verification. Reference Medication Administration Protocol, Nursing Department.",
+    "infection": "Mandatory hand hygiene before/after contact, PPE in isolation areas, and regular environmental cleaning. See Infection Control Policy v3.2, last updated 2024-02-20.",
+    "discharge": "Discharge planning begins at admission with written instructions for medications, follow-up, and warning signs. Reference Discharge Planning Guidelines, Administration Department."
+  }
+}
