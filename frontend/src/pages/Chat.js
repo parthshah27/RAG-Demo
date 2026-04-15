@@ -73,7 +73,7 @@ export default function Chat({ setToken, config }) {
           value={query}
           onChange={(event) => setQuery(event.target.value)}
           onKeyDown={(event) => event.key === "Enter" && !loading && ask()}
-          placeholder={`Ask about ${config.domain}...`}
+          placeholder={config?.ui?.chat_placeholder || `Ask about ${config.domain}...`}
           disabled={loading}
         />
         <button onClick={ask} disabled={loading}>

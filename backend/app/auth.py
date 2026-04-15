@@ -7,7 +7,7 @@ ALGORITHM = "HS256"
 
 FAKE_USER = {
     "username": "admin",
-    "password": "admin",
+"password": "admin123",
 }
 
 

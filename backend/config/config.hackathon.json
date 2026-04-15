@@ -1,0 +1,40 @@
+{
+  "domain": "hackathon",
+  "title": "🚀 Hackathon AI Assistant",
+  "description": "Upload docs + LLM for problem solving",
+  "system_prompt": "You are a helpful coding/problem-solving AI. Use provided context from uploaded docs. For hackathon problems, think step-by-step, suggest code/algorithms. Be concise and actionable.",
+  "query_enhancement_prompt": "Hackathon query - focus on problem description, constraints, requirements.",
+  "data_paths": ["data/*.csv", "data/*.txt", "data/*.md"],
+  "allowed_file_types": [".csv", ".txt", ".md", ".pdf"],
+  "chat_placeholder": "Ask about the problem statement, constraints, or uploaded docs...",
+  "upload_prompt": "Analyze this hackathon file",
+  "sample_queries": [
+    "Summarize the problem statement and key constraints.",
+    "What approach would you recommend for this challenge?",
+    "Highlight important details from the uploaded files."
+  ],
+  "dashboard": {
+    "metrics": [
+      { "label": "Problem Docs", "value": "Upload ready", "change": "Flexible" },
+      { "label": "Assistant Focus", "value": "Solutioning", "change": "Adaptive" },
+      { "label": "Contest Mode", "value": "Fast setup", "change": "Reusable" }
+    ],
+    "insights": [
+      {
+        "title": "Upload-First Flow",
+        "description": "Bring in docs, statements, and references during the contest without rebuilding the UI."
+      },
+      {
+        "title": "Config-Driven Prompts",
+        "description": "Chat starters and landing cards can be changed per challenge from JSON."
+      },
+      {
+        "title": "Multi-Domain Ready",
+        "description": "This same structure works for finance today and any contest domain later."
+      }
+    ]
+  },
+  "demo_responses": {
+    "test": "Ready! Upload your hackathon problem PDF/CSV/docs, set LLM key, and ask away."
+  }
+}

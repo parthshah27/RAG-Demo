@@ -9,3 +9,7 @@ python-jose
 faker
 numpy
 nltk
+sentence-transformers
+groq
+anthropic
+python-multipart

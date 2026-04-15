@@ -2,32 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import API from "../api";
 import "../styles/chat.css";
 
-const DEFAULT_UPLOAD_PROMPT = "Analyze this file";
-
-const ALLOWED_FILE_TYPES = {
-  manufacturing: [".csv", ".xlsx"],
-  retail: [".csv", ".xlsx"],
-  healthcare: [".pdf", ".txt", ".docx"],
-};
-
-const SAMPLE_QUERIES = {
-  manufacturing: [
-    "Why are there more defects on Line A?",
-    "What factors contribute to critical defects?",
-    "How can we reduce surface scratches?",
-  ],
-  retail: [
-    "Why did sales deviate from forecast in December?",
-    "What caused negative deviation in North region?",
-    "How do promotions affect forecast accuracy?",
-  ],
-  healthcare: [
-    "What are the steps for patient admission?",
-    "How should medications be administered?",
-    "What are infection control requirements?",
-  ],
-};
-
 export default function ChatModal({ config, onClose }) {
   const [query, setQuery] = useState("");
   const [messages, setMessages] = useState([]);
@@ -38,14 +12,25 @@ export default function ChatModal({ config, onClose }) {
   const messagesEndRef = useRef(null);
 
   const domain = config?.domain || "general";
-  const allowedTypes = ALLOWED_FILE_TYPES[domain] || [".csv", ".txt", ".pdf"];
+  const uploadPrompt = config?.ui?.upload_prompt || "Analyze this file";
+  const allowedTypes =
+    config?.ui?.allowed_file_types || [".csv", ".txt", ".pdf", ".md"];
   const acceptValue = allowedTypes.join(",");
   const sampleQueries =
-    SAMPLE_QUERIES[domain] || ["Ask me anything about the data..."];
+    config?.ui?.sample_queries || ["Ask me anything about the data..."];
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth", block: "end" });
   }, [messages, loading]);
+
+  const uploadSelectedFile = async (file) => {
+    const formData = new FormData();
+    formData.append("upload", file);
+    const response = await API.post("/upload/", formData, {
+      headers: { "Content-Type": "multipart/form-data" },
+    });
+    return response.data;
+  };
 
   const ask = async () => {
     const trimmedQuery = query.trim();
@@ -53,26 +38,35 @@ export default function ChatModal({ config, onClose }) {
 
     const userMessage = {
       type: "user",
-      text: trimmedQuery || DEFAULT_UPLOAD_PROMPT,
+      text: trimmedQuery || uploadPrompt,
       file: uploadedFile?.name,
-    };
-
-    const requestData = {
-      query: uploadedFile
-        ? `${trimmedQuery || DEFAULT_UPLOAD_PROMPT}: ${uploadedFile.name}`
-        : trimmedQuery,
     };
 
     try {
       setLoading(true);
       setError("");
 
+      let uploadedSummary = null;
+      if (uploadedFile) {
+        uploadedSummary = await uploadSelectedFile(uploadedFile);
+      }
+
+      const requestData = {
+        query: uploadedFile
+          ? `${trimmedQuery || uploadPrompt}: ${uploadedFile.name}. Indexed ${uploadedSummary?.indexed || 0} records for the ${domain} domain.`
+          : trimmedQuery,
+      };
+
       const res = await API.post("/ask", requestData);
+
+      const botText = uploadedSummary
+        ? `Indexed ${uploadedSummary.indexed} records from ${uploadedSummary.filename}.\n\n${res.data.answer}`
+        : res.data.answer;
 
       setMessages((currentMessages) => [
         ...currentMessages,
         userMessage,
-        { type: "bot", text: res.data.answer },
+        { type: "bot", text: botText },
       ]);
 
       setQuery("");
@@ -150,8 +144,8 @@ export default function ChatModal({ config, onClose }) {
         <div className="chat-messages">
           {messages.length === 0 && (
             <div className="welcome-message">
-              <h4>Welcome to {config?.title || "AI Assistant"}!</h4>
-              <p>Try asking:</p>
+              <h4>{config?.ui?.empty_state_title || `Welcome to ${config?.title || "AI Assistant"}!`}</h4>
+              <p>{config?.ui?.empty_state_description || "Try asking:"}</p>
               <div className="sample-queries">
                 {sampleQueries.map((sampleQuery) => (
                   <button
@@ -206,7 +200,7 @@ export default function ChatModal({ config, onClose }) {
               value={query}
               onChange={(event) => setQuery(event.target.value)}
               onKeyDown={handleKeyDown}
-              placeholder="Ask a question..."
+              placeholder={config?.ui?.chat_placeholder || `Ask about ${domain}...`}
               disabled={loading}
             />
 

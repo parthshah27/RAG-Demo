@@ -26,9 +26,29 @@ function App() {
         console.error("Failed to fetch config:", err);
         // Use default config if fetch fails
         setConfig({
-          domain: "finance",
+          domain: "general",
           title: "AI Assistant",
-          description: "Analyze data with AI-powered insights"
+          description: "Analyze data with AI-powered insights",
+          ui: {
+            chat_placeholder: "Ask about your dataset...",
+            upload_prompt: "Analyze this file",
+            sample_queries: ["What are the key trends in this dataset?"],
+            allowed_file_types: [".csv", ".txt", ".pdf", ".md"],
+            empty_state_title: "Welcome to AI Assistant!",
+            empty_state_description: "Ask questions and explore the currently loaded domain data.",
+            dashboard: {
+              metrics: [
+                { label: "Dataset Status", value: "Ready", change: "Live" },
+                { label: "Mode", value: "Generic", change: "Adaptive" },
+              ],
+              insights: [
+                {
+                  title: "Config Driven",
+                  description: "Swap the active domain by updating backend config and data paths.",
+                },
+              ],
+            },
+          },
         });
       } finally {
         setLoading(false);

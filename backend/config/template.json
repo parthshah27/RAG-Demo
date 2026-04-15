@@ -8,6 +8,52 @@
     "data/*.csv",
     "data/**/*.csv"
   ],
+  "allowed_file_types": [
+    ".csv",
+    ".txt",
+    ".pdf",
+    ".md"
+  ],
+  "chat_placeholder": "Ask about your uploaded data or current dataset...",
+  "upload_prompt": "Analyze this file",
+  "sample_queries": [
+    "What are the most important trends in this dataset?",
+    "Which anomalies or outliers should I investigate first?",
+    "Summarize the key insights in simple terms."
+  ],
+  "dashboard": {
+    "metrics": [
+      {
+        "label": "Dataset Status",
+        "value": "Ready",
+        "change": "Live"
+      },
+      {
+        "label": "Config Source",
+        "value": "JSON driven",
+        "change": "Flexible"
+      },
+      {
+        "label": "Assistant Mode",
+        "value": "Domain aware",
+        "change": "Reusable"
+      }
+    ],
+    "insights": [
+      {
+        "title": "Rapid Domain Switching",
+        "description": "Change the domain, prompts, data paths, and UI labels directly from config."
+      },
+      {
+        "title": "Upload Friendly",
+        "description": "Allowed file types and upload prompts can match the contest problem without code changes."
+      },
+      {
+        "title": "Reusable Landing Page",
+        "description": "Metric cards and insight panels are now config-backed instead of hardcoded for one domain."
+      }
+    ]
+  },
   "demo_responses": {
     "test": "This is a test response. The system is working in demo mode. Replace your data and disable DEMO_MODE to get real answers.",
     "help": "I can help you analyze your data. Ask me specific questions about your domain!",

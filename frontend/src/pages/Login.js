@@ -31,7 +31,7 @@ export default function Login({ setToken }) {
       setToken(res.data.token);
     } catch (err) {
       console.error("Login error:", err);
-      setError("Login failed. Please try again.");
+      setError(err.response?.data?.detail || err.message || "Login failed. Please try again.");
     } finally {
       setLoading(false);
     }
